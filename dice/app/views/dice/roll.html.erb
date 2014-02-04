@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Dice Game</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#rollAgain").click(function() {
+					window.open("/dice/roll?goal=" + <%= @goal %>, "_self");
+				});
+				$("#startOver").click(function() {
+					window.open("/dice", "_self");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Dice Game</h1>
+		<img src="<%= 'https://uchicago.s3.amazonaws.com/d0%d.png' % [@die_1] %>" />
+		<img src="<%= 'https://uchicago.s3.amazonaws.com/d0%d.png' % [@die_2] %>" />
+		<% if @win %>
+			<h2>YOU WIN!</h2>
+		<% elsif @lose %>
+			<h2>YOU LOSE.</h2>
+		<% end %>
+		<% if @win || @lose %>
+			<button id="startOver" class="btn btn-info">Start Over</button>
+		<% else %>
+			<h2>Your goal is now <%= @goal %></h2>
+			<h3>Now try to get a <%= @goal %> again before you roll a 7.</h3>
+			<button id="rollAgain" class="btn btn-info">Roll the dice</button>
+		<% end %>
+	</body>
+</html>
+

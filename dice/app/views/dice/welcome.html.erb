@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Dice Game Instructions</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#rollBtn").click(function() {
+					window.open("/dice/roll", "_self");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Dice Game</h1>
+		<h2>Welcome</h2>
+		<p>Here are the rules:</p>
+		<ul>
+			<li>Roll the dice to start the game.</li>
+			<li>If your first roll is a 7 or 11, you win.</li>
+			<li>If your first roll is a 2, 3 or 12, you lose.</li>
+			<li>Anything else becomes your <em>goal</em>. Roll your goal again before rolling a 7, and you win.  Roll a 7 instead of your goal, and you lose.</li>
+		</ul>
+		<button id="rollBtn" class="btn btn-info">Roll to start the game!</button>
+	</body>
+</html>
+
